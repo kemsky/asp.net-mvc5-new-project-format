@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters >
+  <parameter name="ApplicationUrl" description="ApplicationUrl">
+    <parameterEntry kind="XmlFile"
+                    scope="\\web.config$"
+                    match="/configuration/appSettings/add[@key='ApplicationUrl']/@value" />
+  </parameter>
+</parameters>

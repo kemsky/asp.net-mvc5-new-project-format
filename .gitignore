@@ -1,0 +1,8 @@
+.git
+.idea
+.vs
+packages
+bin
+obj
+roslyn
+_PublishedWebsites

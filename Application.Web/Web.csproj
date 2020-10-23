@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <OutputPath>bin\</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <RunCommand>$(MSBuildExtensionsPath64)\..\IIS Express\iisexpress</RunCommand>
+        <RunArguments>/path:"$(MSBuildProjectDirectory)" /port:5001</RunArguments>
+        <TargetFramework>net48</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <LangVersion>latest</LangVersion>
+        <DeployDefaultTargetFrameworkVersion>4.7.2</DeployDefaultTargetFrameworkVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="Content\robots.txt" />
+        <None Remove="**" />
+        <Content Remove="**" />
+
+        <None Include="node_modules" Visible="false" />
+        <Content Include="**" Exclude="obj/**;bin/**;node_modules/**;**/*.cs;*.csproj*" />
+
+        <Compile Update="**\*.aspx.cs;**\*.asax.cs;**\*.ascx.cs;**\*.Master.cs" DependentUpon="%(Filename)" SubType="ASPXCodeBehind" />
+        <Compile Update="**\*.asmx.cs;" DependentUpon="%(Filename)" SubType="Component" />
+        <Compile Update="**\*.ashx.cs;" DependentUpon="%(Filename)" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="System.Web" />
+        <Reference Include="System.Web.Http" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+        <PackageReference Include="Microsoft.AspNet.Web.Optimization" Version="1.1.3" />
+        <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
+        <PackageReference Include="Microsoft.AspNet.WebApi.Extensions.Compression.Server" Version="2.0.6" />
+        <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.7" />
+        <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.7" />
+        <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.5" />
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+        <PackageReference Include="Microsoft.Net.Compilers" Version="3.7.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Owin" Version="4.1.1" />
+        <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.1.1" />
+        <PackageReference Include="System.CodeDom" Version="4.7.0" />
+        <PackageReference Include="System.Reflection" Version="4.3.0" />
+    </ItemGroup>
+    <PropertyGroup>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" />
+</Project>
