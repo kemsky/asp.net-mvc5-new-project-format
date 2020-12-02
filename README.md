@@ -10,7 +10,7 @@ You can also create webdeploy package using publish.cmd (adjust paths).
 
 # Run|Debug in Rider
 
-## 1. Option - launchSettings.json
+## 1. Option - launchSettings.json (No Debug)
 
 You can run project simply by using configured `launchSettings.json`:
 
