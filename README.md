@@ -10,7 +10,7 @@ You can also create webdeploy package using publish.cmd (adjust paths).
 
 # Run|Debug in Rider
 
-## 1. Option - launchSettings.json (No Debug)
+## Step 1. Run using launchSettings.json (Debug will not work)
 
 You can run project simply by using configured `launchSettings.json`:
 
@@ -33,9 +33,11 @@ You can run project simply by using configured `launchSettings.json`:
 }
 ```
 
-## 2. Option - ".Net Executable" run configuration
+## Step 2. ".Net Executable" debug configuration
 
-You can run debug with IIS Express against ".Net Executable" run configuration.
+Rider automatically creates `applicationhost.config` in the `.idea` folder on Step 1.
+
+Now you can run debug with IIS Express against ".Net Executable" run configuration. 
 
 - Create new `.NET Executable` configuration
 - Set `Exe path` to `C:/Program Files (x86)/IIS Express/iisexpress.exe`
